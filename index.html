@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Carlos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuente manuscrita -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= SOBRE ================= -->
+<div class="sobre" id="sobre" onclick="romperSello()">
+    <div class="sello" id="sello"></div>
+    <p class="abrir">Toca el sello para abrir</p>
+</div>
+
+<!-- ================= AUDIOS ================= -->
+<audio id="musica" loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sonidoHoja">
+    <source src="audio/pasar-hoja.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sonidoCera">
+    <source src="audio/cera.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= CARTA ================= -->
+<div class="carta oculto" id="carta">
+
+    <!-- HOJA 1 -->
+    <div class="hoja activa">
+        <p class="texto" data-texto="Mi amor,
+
+Esta carta fue escrita con el cuidado
+de lo que se guarda como un recuerdo."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 2 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Ha transcurrido un tiempo considerable desde la última 
+        ocasión en que me permití escribirte una carta. En esta ocasión, las circunstancias me impiden entregártela
+        como antes, sobre una hoja arrancada de mi libreta y trazada con mi propia mano. No obstante, la distancia 
+        — aunque insistente — no posee el poder de silenciar aquello que nace del corazón. 
+        Estas palabras, escritas con la misma sinceridad de siempre, tienen un único y claro destinatario: tú."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 3 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Confieso que uno de mis más grandes anhelos era compartir estas fechas a tu lado.
+Sin embargo, el destino, tan firme como impredecible, suele guiarnos por senderos distintos a los que imaginamos,
+no siempre para alejarnos, sino para enseñarnos a sentir con mayor profundidad y paciencia."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 4 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Deseo que sepas — y no con ligereza — que te amo.
+Amo cada parte de ti con una devoción que no necesita ser proclamada para ser verdadera.
+Amo el color de tus ojos y el tono claro de tu piel, tan distinto al mío, pero tan perfectamente complementario."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 5 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Amo la suavidad de tus manos y la manera en que encajan con las mías,
+como si siempre hubiesen sabido encontrarse.
+Amo tu cuidado al tocarme, la delicadeza de tus gestos, la ternura de tus labios y esos cachetes tan adorables
+que ya no me permites morder… sin saber que en ese gesto sencillo yo te decía, en silencio: 
+me gustas, te amo, me veo contigo."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 6 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Amo tu voz ronca, capaz de estremecerme con solo pronunciar mi nombre,
+y tu aroma profundamente varonil, ese que permanece conmigo durante todo el día
+cada vez que tengo la fortuna de refugiarme en tus brazos."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 7 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Aunque hoy la distancia se interponga entre nosotros, 
+        mi amor no ha disminuido ni ha perdido su constancia.
+Permanece firme, paciente, aguardándote con la misma lealtad con la que late mi corazón.
+Sin embargo no negaré que tu ausencia se hace presente en los pequeños detalles: en los silencios prolongados, 
+en los espacios vacíos a mi lado, en los momentos en los que instintivamente busco tu mano y solo encuentro aire."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 8 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Te extraño.
+Te extraño con una intensidad tranquila pero persistente. Te extraño en las mañanas, cuando despierto deseando escucharte; 
+en las noches, cuando el día termina y tu nombre se instala en mis pensamientos. Extraño tu cercanía, tu presencia silenciosa,
+la simple certeza de saberte junto a mí. Hay días en los que la añoranza no duele, pero pesa: y otros en los que pesa tanto
+que se convierte en una prueba de paciencia y fortaleza."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- HOJA 9 -->
+    <div class="hoja">
+        <p class="texto" data-texto="No me atraes únicamente por lo que mis ojos alcanzan a ver,
+        sino por aquello que despiertas en mí. Contigo no sentí las triviales mariposas de un afecto pasajero; 
+        sentí, más bien, una chispa profunda y vivificante, una corriente que recorrió todo mi ser y me devolvió a la vida
+        cuando ni siquiera sabía que la había perdido."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+     <!-- HOJA 10 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Aun en la distancia, mi mente y mi espíritu te buscan. Te encuentro en mis pensamientos más tranquilos
+        y también en mis sueños, donde tu presencia es tan real que al despertar debo recordarme que no estás aquí. Desde que te conozco, los días
+        dejaron de sentirse pesados; incluso bajo cielos grises, pensarte es sentir el calor del sol y la calma del mar."></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+     <!-- HOJA 11 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Si me viera obligada a describirte en un solo pensamiento, diría que eres como una obra de arte: 
+        una pintura que obliga a detenerse, a contemplar con atencion cada uno de sus detalles, sin importar quién haya sido 
+        su creador. Y aunque nuestra forma de comunicarnos no siga patrones habitales de otras parejas, te siento cercano, presente, a mi lado;
+        porque lo que para otros es simplemente tiempo, para mi — cuando se trata de ti — se transforma en eternidad. "></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+     <!-- HOJA 12 -->
+    <div class="hoja">
+        <p class="texto" data-texto="Amo estar enamorada de ti. No solo porque el sentimiento es profundo y verdadero, 
+        sino porque en ti encontré dos palabras que jamás había unido de esta manera: hogar y amor. Y si hoy 
+        la distancia me obliga a conformarme con la esperanza, lo hago con la certeza de que este sentimiento vale cada instante de paciencia.
+        "></p>
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- ================= IMÁGENES ================= -->
+    <div class="hoja">
+        <img src="imagenes/beso.jpeg" alt="Besos">
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <div class="hoja">
+        <img src="imagenes/manos.jpeg" alt="Manos">
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <div class="hoja">
+        <img src="imagenes/caminando.jpeg" alt="Caminando juntos">
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <div class="hoja">
+        <img src="imagenes/Nombres.jpeg" alt="Nombres">
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <div class="hoja">
+        <img src="imagenes/mano tatuada.jpeg" alt="Mano tatuada">
+        <button onclick="deslizar()">Desliza →</button>
+    </div>
+
+    <!-- ================= DESPEDIDA ================= -->
+    <div class="hoja">
+        <p class="texto" data-texto="Con todo mi afecto,
+y con la esperanza serena de volver a encontrarte,
+siempre tuya — Tezza"></p>
+    </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+let hojaActual = 0;
+
+function romperSello() {
+    const sello = document.getElementById("sello");
+    sello.classList.add("roto");
+
+    setTimeout(() => {
+        document.getElementById("sobre").style.display = "none";
+        document.getElementById("carta").classList.remove("oculto");
+
+        const musica = document.getElementById("musica");
+        musica.volume = 0.35;
+        musica.play();
+
+        animarTexto(document.querySelector(".hoja.activa"));
+    }, 900);
+}
+
+function deslizar() {
+    const hojas = document.querySelectorAll(".hoja");
+    const sonido = document.getElementById("sonidoHoja");
+
+    sonido.currentTime = 0;
+    sonido.volume = 0.25;
+    sonido.play();
+
+    hojas[hojaActual].classList.remove("activa");
+    hojas[hojaActual].classList.add("saliente");
+
+    hojaActual++;
+    if (hojaActual < hojas.length) {
+        hojas[hojaActual].classList.add("entrante", "activa");
+        animarTexto(hojas[hojaActual]);
+    }
+}
+
+function animarTexto(hoja) {
+    const p = hoja.querySelector(".texto");
+    if (!p) return;
+
+    const texto = p.getAttribute("data-texto");
+    p.textContent = "";
+    let i = 0;
+
+    const intervalo = setInterval(() => {
+        p.textContent += texto.charAt(i);
+        i++;
+        if (i >= texto.length) clearInterval(intervalo);
+    }, 28);
+}
+</script>
+
+</body>
+</html>

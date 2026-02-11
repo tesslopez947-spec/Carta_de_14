@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    background: #2b2b2b;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ================= SOBRE ================= */
+.sobre {
+    background: #f3e4c3;
+    width: 300px;
+    height: 200px;
+    border-radius: 14px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+}
+
+/* ================= SELLO ================= */
+.sello {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at top, #b11226, #6e0f18);
+    animation: pulso 2s infinite;
+    clip-path: path(
+        "M40 72 C10 50 0 30 15 18
+         C28 5 40 18 40 18
+         C40 18 52 5 65 18
+         C80 30 70 50 40 72 Z"
+    );
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.6),
+                0 8px 15px rgba(0,0,0,0.45);
+}
+
+.sello::after {
+    content: "C";
+    color: rgba(255,255,255,0.65);
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* ================= SELLO ROTO ================= */
+.sello.roto {
+    animation: romper 0.8s forwards;
+}
+
+@keyframes romper {
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* ================= CARTA ================= */
+.carta {
+    background: linear-gradient(to bottom, #fdf8ec, #f7efd9);
+    width: 94%;
+    max-width: 460px;
+    min-height: 78vh;
+    padding: 40px 30px;
+    border-radius: 26px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.12),
+                0 30px 60px rgba(0,0,0,0.45);
+    position: relative;
+    overflow: hidden;
+}
+
+.oculto {
+    display: none;
+}
+
+/* ================= HOJAS ================= */
+.hoja {
+    display: none;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 88%;
+    background: #f6f0dc;
+    padding: 55px 45px;
+    border-radius: 18px;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.14),
+                0 20px 35px rgba(0,0,0,0.35);
+}
+
+.hoja.activa {
+    display: block;
+    animation: entrarLibro 0.8s ease;
+}
+
+@keyframes entrarLibro {
+    from { transform: rotateY(-90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+}
+
+/* ================= TEXTO ================= */
+.hoja h1, .hoja h2 {
+    text-align: center;
+    color: #3a2d1a;
+}
+
+.hoja p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 25px;
+    line-height: 1.8;
+    margin-top: 25px;
+}
+
+/* ================= BOTÓN ================= */
+button {
+    margin: 35px auto 0;
+    display: block;
+    padding: 10px 28px;
+    border: none;
+    background: #8a6a3b;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* ================= FIRMA ================= */
+.firma {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    display: block;
+    margin-top: 45px;
+    text-align: right;
+}
+/* ======== FIX DEFINITIVO PARA IMÁGENES ======== */
+.hoja {
+    box-sizing: border-box;
+}
+
+/* Imagen SIEMPRE contenida */
+.hoja img {
+    max-height: 48vh;     /* 👈 límite REAL */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 20px auto;
+}
+
+/* Botón siempre visible */
+.hoja button {
+    margin-top: 10px;
+    position: sticky;
+    bottom: 15px;
+}
+/* ===== IMÁGENES DENTRO DE LA CARTA ===== */
+.imagen-carta {
+    display: block;
+    max-width: 100%;
+    max-height: 48vh;      /* controla el tamaño REAL */
+    object-fit: contain;
+    margin: 25px auto;
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 20px rgba(0,0,0,0.25),
+        inset 0 0 8px rgba(255,255,255,0.25);
+}

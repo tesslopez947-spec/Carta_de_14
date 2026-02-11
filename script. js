@@ -1,0 +1,87 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const sobre = document.getElementById("sobre");
+    const carta = document.getElementById("carta");
+    const musica = document.getElementById("musica");
+    const sonidoHoja = document.getElementById("sonidoHoja");
+    const sonidoCera = document.getElementById("sonidoCera");
+    const sello = document.querySelector(".sello");
+
+    const hojas = document.querySelectorAll(".hoja");
+    let hojaActual = 0;
+
+    /* ===== VALIDACIÓN BÁSICA ===== */
+    if (!sobre || !carta || !sello || hojas.length === 0) {
+        console.error("Faltan elementos en el HTML");
+        return;
+    }
+
+    /* ===== ESTADO INICIAL ===== */
+    carta.classList.add("oculto");
+    carta.style.display = "none";
+
+    hojas.forEach((hoja, index) => {
+        hoja.classList.remove("activa", "entrante", "saliente");
+        if (index === 0) hoja.classList.add("activa");
+    });
+
+    /* ===== CLICK EN SELLO ===== */
+    sello.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (sonidoCera) {
+            sonidoCera.currentTime = 0;
+            sonidoCera.volume = 0.7;
+            sonidoCera.play();
+        }
+
+        sello.classList.add("roto");
+
+        setTimeout(() => {
+            sobre.style.display = "none";
+
+            carta.classList.remove("oculto");
+            carta.style.display = "block";
+
+            if (musica) {
+                musica.volume = 0.4;
+                musica.play();
+            }
+
+            hojaActual = 0;
+            animarTexto(hojas[0]);
+        }, 450);
+    });
+
+    /* ===== PASAR HOJA ===== */
+    window.deslizar = function () {
+        if (hojaActual >= hojas.length - 1) return;
+
+        if (sonidoHoja) {
+            sonidoHoja.currentTime = 0;
+            sonidoHoja.volume = 0.25;
+            sonidoHoja.play();
+        }
+
+        hojas[hojaActual].classList.remove("activa");
+        hojas[hojaActual].classList.add("saliente");
+
+        hojaActual++;
+
+        hojas[hojaActual].classList.remove("saliente");
+        hojas[hojaActual].classList.add("activa", "entrante");
+
+        animarTexto(hojas[hojaActual]);
+    };
+
+    /* ===== ANIMAR TEXTO ===== */
+    function animarTexto(hoja) {
+        const textos = hoja.querySelectorAll(".texto");
+        textos.forEach((t, i) => {
+            t.classList.remove("escribiendo");
+            setTimeout(() => {
+                t.classList.add("escribiendo");
+            }, i * 600);
+        });
+    }
+});
